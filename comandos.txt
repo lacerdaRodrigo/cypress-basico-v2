@@ -3,3 +3,11 @@ should = contem o conteudo que esta em ''
 be.equal = seja igual o que foi digitado 
 ve.visible = esta visivel na tela
 have.value = tem um valor 
+have.length = "comprimeiro" de radio botão 
+each = vai passar por cada um dos elementos
+be.checked = verificar se os elementos foram selecionados
+check = marcar campos
+last = selecionar o  ultimo  elemetno quando tem varios marcado
+uncheck = desmarcar elementos
+not.be.checked = não esta mais checado ou marcado
+

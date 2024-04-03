@@ -21,7 +21,7 @@ describe('template spec', () => {
     cy.get('#lastName').type('Lacerda')
     cy.get('#email').type('rodrigo.lacerda@gmail.com')
     cy.get('#open-text-area').type(textLong, { delay: 0 })
-    cy.get('button[type="submit"]').click()
+    cy.contains('button', 'Enviar').click()
 
     cy.get('.success').should('be.visible')
 
@@ -33,7 +33,7 @@ describe('template spec', () => {
     cy.get('#lastName').type('Lacerda')
     cy.get('#email').type('rodrigo.lacerda@gmail,com')
     cy.get('#open-text-area').type('Teste')
-    cy.get('button[type="submit"]').click()
+    cy.contains('button', 'Enviar').click()
 
     cy.get('.error').should('be.visible')
   })
@@ -49,9 +49,9 @@ describe('template spec', () => {
     cy.get('#firstName').type('Rodrigo')
     cy.get('#lastName').type('Lacerda')
     cy.get('#email').type('rodrigo.lacerda@gmail.com')
-    cy.get('#phone-checkbox').click()
+    cy.get('#phone-checkbox').check()
     cy.get('#open-text-area').type('Teste')
-    cy.get('button[type="submit"]').click()
+    cy.contains('button', 'Enviar').click()
 
     cy.get('.error').should('be.visible')
 
@@ -86,17 +86,75 @@ describe('template spec', () => {
 
   it('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios', () => {
 
-    cy.get('button[type="submit"]').click()
+    cy.contains('button', 'Enviar').click()
 
     cy.get('.error').should('be.visible')
 
   })
 
-  it.only('envia o formuário com sucesso usando um comando customizado', () => {
+  it('envia o formuário com sucesso usando um comando customizado', () => {
 
     cy.fillMandatoryFieldsAndSubmit()
 
     cy.get('.success').should('be.visible')
+  })
+
+  it('selecione um produto (Youtube) e seu texto', () => {
+
+   
+
+    cy.get('#product')
+      .select('YouTube')
+      .should('have.value', 'youtube')
+
+  })
+
+
+  it('selecione um produto (mentoria) e seu valor (value)', () => {
+
+    cy.get('#product')
+      .select('mentoria')
+      .should('have.value', 'mentoria')
+
+  })
+
+  it('selecione um produto (Blog) pelo seu indice', () => {
+
+    cy.get('#product')
+      .select(1)
+      .should('have.value', 'blog')
+
+  })
+
+  it('marca o tipo de atendimento "feedback"', () => {
+
+    cy.get('input[type="radio"][value="feedback"]')
+      .check()
+      .should('have.value','feedback')
+
+  })
+
+  it('marca cada tipo de atendimento', () => {
+
+    cy.get('input[type="radio"]')
+      .should('have.length' , 3)
+      .each(function($radio){
+        cy.wrap($radio).check()
+        cy.wrap($radio).should('be.checked')
+      })
+      
+  })
+
+  it.only('marca ambos checkboxes, depois desmarca o último', () => {
+
+    cy.get('input[type="checkbox"]')
+      .check()
+      should('be.checked')
+      .last()
+      .uncheck()
+      .should('not.be.checked')
+ 
+      
   })
 
 })
