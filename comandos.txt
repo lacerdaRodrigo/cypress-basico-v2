@@ -10,4 +10,8 @@ check = marcar campos
 last = selecionar o  ultimo  elemetno quando tem varios marcado
 uncheck = desmarcar elementos
 not.be.checked = não esta mais checado ou marcado
+not.have.value = nem um arquivo selecionados
+have.attr = verificar atributo
+invoque = abrir uma nova aba do navegador
+
 
