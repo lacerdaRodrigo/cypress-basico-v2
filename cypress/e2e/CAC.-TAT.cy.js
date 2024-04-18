@@ -4,8 +4,8 @@
 describe('template spec', () => {
 
   beforeEach(() => {
-    //cy.visit('https://cac-tat.s3.eu-central-1.amazonaws.com/index.html')
-    cy.visit('./src/index.html')
+    cy.visit('https://cac-tat.s3.eu-central-1.amazonaws.com/index.html')
+    //cy.visit('./src/index.html')
   })
 
   it('verificar titulo da aplicação', () => {
