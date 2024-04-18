@@ -15,7 +15,6 @@ Execute npm install (ou npm i para a versão curta) para instalar as dependênci
 Execute,
 npx cypress open para iniciar os testes
 
-
 # Apoie este projeto
 
 Se você quiser apoiar este projeto, deixe um ⭐.
